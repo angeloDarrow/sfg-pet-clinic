@@ -1,4 +1,4 @@
 package com.angelo.sfgpetclinic.model;
 
-public class Owener extends Person {
+public class Owner extends Person {
 }
