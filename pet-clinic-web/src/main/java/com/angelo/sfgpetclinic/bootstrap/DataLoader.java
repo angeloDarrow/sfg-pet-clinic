@@ -69,7 +69,7 @@ public class DataLoader implements CommandLineRunner {
         chan.setName("Chan");
         chan.setPetType(saveDogPetType);
         chan.setOwner(owner1);
-        chan.setLocalDate(LocalDate.now());
+        chan.setBirthDate(LocalDate.now());
         owner1.getPets().add(chan);
 
 
@@ -97,7 +97,7 @@ public class DataLoader implements CommandLineRunner {
         chan.setName("Makis");
         chan.setPetType(saveCatPetType);
         chan.setOwner(owner2);
-        chan.setLocalDate(LocalDate.now());
+        chan.setBirthDate(LocalDate.now());
         owner2.getPets().add(owners2Pet);
 
         vetService.save(vet1);
