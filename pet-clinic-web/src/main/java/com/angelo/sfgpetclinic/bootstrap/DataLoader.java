@@ -1,10 +1,7 @@
 package com.angelo.sfgpetclinic.bootstrap;
 
 import com.angelo.sfgpetclinic.model.*;
-import com.angelo.sfgpetclinic.services.OwnerService;
-import com.angelo.sfgpetclinic.services.PetTypeService;
-import com.angelo.sfgpetclinic.services.SpecialtySevice;
-import com.angelo.sfgpetclinic.services.VetService;
+import com.angelo.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private  final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtySevice specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtySevice specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtySevice specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -110,6 +109,11 @@ public class DataLoader implements CommandLineRunner {
 
         vetService.save(vet2);
 
+        Visit catVisit = new Visit();
+        catVisit.setPet(chan);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("coronovirus");
+        visitService.save(catVisit);
         System.out.println("Loaded vets...");
     }
 }
