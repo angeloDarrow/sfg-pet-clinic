@@ -16,7 +16,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-    @GetMapping("")
+    @GetMapping({"","index"})
     public String listVets(Model model){
 
         model.addAttribute("owners", ownerService.findaAll());
