@@ -27,8 +27,12 @@ public class Owner extends Person {
         this.pets = pets;
     }
 
-
-
+    public Owner(String address, String city, String telephone, Set<Pet> pets) {
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
+        this.pets = pets;
+    }
 
     @Column(name = "address")
     private String address;
